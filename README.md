@@ -1,2 +1,2 @@
 # learning-to-code
-Learning the Python language an programming fundamentals.
+Learning the Python language and programming fundamentals.
