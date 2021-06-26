@@ -1,0 +1,6 @@
+age = int(input("What is your current age? \n"))
+yearsLeft = (90 - age)
+daysLeft = (yearsLeft * 365)
+weeksLeft = (yearsLeft * 52)
+monthsLeft = (yearsLeft * 12)
+print(f"You have {daysLeft} days, {weeksLeft} weeks, and {monthsLeft} months left until 90.")
