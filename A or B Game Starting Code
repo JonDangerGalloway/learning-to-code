@@ -1,0 +1,26 @@
+import random
+from game_data import data
+
+def random_person():
+    return (random.choice(data))
+
+
+
+def compare(person_a, person_b):
+    if person_a["follower_count"] > person_b["follower_count"]:
+        print("A has more")
+    else:
+        print("B has more")
+
+
+
+
+person_a = random_person()
+person_b = random_person()
+
+print(person_a)
+print(person_b)
+
+print(person_a["follower_count"])
+print(person_b["follower_count"])
+compare(person_a, person_b)
