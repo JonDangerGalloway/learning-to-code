@@ -34,6 +34,18 @@ def check_ingredients(coffee_type):
     return ingredients
 
 
+def return_ingredients(coffee_type):
+    chosen_drink_ingredients = MENU[coffee_type]["ingredients"]
+    available_machine_ingredients = ingredients
+    for item in available_machine_ingredients:
+        if item in chosen_drink_ingredients:
+            machine_ingredients = (available_machine_ingredients[item])
+            recipe_requirements = (chosen_drink_ingredients[item])
+            machine_amount_left = machine_ingredients + recipe_requirements
+            available_machine_ingredients[item] = machine_amount_left
+    return ingredients
+
+
 def run_report():
     print(f"Water: {ingredients['water']}ml")
     print(f"Milk: {ingredients['milk']}ml")
@@ -58,13 +70,16 @@ while run_machine:
             run_machine = True
         else:
             coffee_cost = (cost(type_of_coffee))
-            profit += coffee_cost
             amount_paid = make_payment()
             change = amount_paid - coffee_cost
             if amount_paid < coffee_cost:
                 print("Sorry, that's not enough money. Money refunded")
+                return_ingredients(type_of_coffee)
+
             elif amount_paid == coffee_cost:
+                profit += coffee_cost
                 print(f"Here is your {type_of_coffee}, enjoy!")
             else:
+                profit += coffee_cost
                 print(f"Your change is ${round(change, 2)}")
                 print(f"Here is your {type_of_coffee}, enjoy!")
